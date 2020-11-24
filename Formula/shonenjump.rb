@@ -2,31 +2,49 @@
 class Shonenjump < Formula
   desc "A faster way to change directory and improve command line productivity."
   homepage "https://github.com/suzaku/shonenjump"
-  version "0.7.10"
+  version "0.7.11"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.10/shonenjump_Mac_x86_64.tar.gz"
-    sha256 "6fb204998520b31f45ce0df2c480238ba14250e92bd9ae4d946fdf50802880d9"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.11/shonenjump_Mac_x86_64.tar.gz"
+    sha256 "ea110765fd71dc96732616ea1b7851d33db6358a8f489aa8b5501ae0986e9c56"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.10/shonenjump_Linux_x86_64.tar.gz"
-    sha256 "885d08f44bc21ea2ba363e24696676c76efed9e27529d9351e27a0c2a19b170d"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.11/shonenjump_Linux_x86_64.tar.gz"
+    sha256 "23629dd3b888d7d74d0b73a89f1dcc6541292445a25dadf14eef578af3a0d82a"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.10/shonenjump_Linux_armv6.tar.gz"
-    sha256 "f9b604d4fb4794e2e90b376c78da263809930b25d700311b04ebcb42c9056838"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.11/shonenjump_Linux_armv6.tar.gz"
+    sha256 "72d04b3b3cd37f000de619c1bedc74ef10338722d2cd8233c87c2a5615ecd738"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.10/shonenjump_Linux_arm64.tar.gz"
-    sha256 "46a20a9ab1b030399c78053ebcae65d95cf17bd3b82d06517c60c9f7da48f8a5"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.11/shonenjump_Linux_arm64.tar.gz"
+    sha256 "3275ef010542b055dac913b82a5dd511f84c12676332ccf28349a86fda1f0eca"
   end
 
   def install
     bin.install "shonenjump"
-    bash_completion.install "scripts/shonenjump.bash" => "j"
-    zsh_completion.install "scripts/shonenjump.zsh" => "_j"
-    fish_completion.install "scripts/shonenjump.fish"
+    path = prefix/"etc/profile.d"
+    path.mkpath
+    system "cp", "scripts/shonenjump.bash", path/"shonenjump.bash"
+    system "cp", "scripts/shonenjump.zsh", path/"shonenjump.zsh"
+    system "cp", "scripts/shonenjump.fish", path/"shonenjump.fish"
+    zsh_completion.install "scripts/_j" => "_j"
+  end
+
+  def caveats; <<~EOS
+    If you are using Bash, add the following line to your ~/.bash_profile:
+    
+      [ -f #{etc}/profile.d/shonenjump.bash ] && . #{etc}/profile.d/shonenjump.bash
+    
+    If you are using Zsh, add the following line to your ~/.zshrc:
+    
+      [ -f #{etc}/profile.d/shonenjump.zsh ] && . #{etc}/profile.d/shonenjump.zsh
+    
+    If you are using Fish, add the following line to your ~/.config/fish/config.fish:
+    
+      [ -f #{etc}/profile.d/shonenjump.fish ]; and source #{etc}/profile.d/shonenjump.fish
+  EOS
   end
 
   test do
