@@ -2,24 +2,24 @@
 class Shonenjump < Formula
   desc "A faster way to change directory and improve command line productivity."
   homepage "https://github.com/suzaku/shonenjump"
-  version "0.7.13"
+  version "0.7.14"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.13/shonenjump_Mac_x86_64.tar.gz"
-    sha256 "9d468be0b8b538e2f2795d4c7fe10c0f0b2ac6773b1ace3d70d8fd1363ba2306"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.14/shonenjump_Mac_x86_64.tar.gz"
+    sha256 "f24b92ddf7988c6cf2a88a5cea236141e3c96cfb28d1f8b9c3830aff1f316a7a"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.13/shonenjump_Linux_x86_64.tar.gz"
-    sha256 "8e2bcd0dc4ff9dd2ae120b675daf25d5b1fbfdd6f56aadac6549eef7c712c0e4"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.14/shonenjump_Linux_x86_64.tar.gz"
+    sha256 "a254df02eae746027773ac691b2cbf547c5c3bcb04921226647b7beb4c62abf5"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.13/shonenjump_Linux_armv6.tar.gz"
-    sha256 "9309d175075bd3a61b6a71b335948427979d051687f6fc033f76d86fdf96833b"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.14/shonenjump_Linux_armv6.tar.gz"
+    sha256 "0732f3c82ddf52b5e1b647fba249023a9665c08669094a364064b50570ba6b48"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.13/shonenjump_Linux_arm64.tar.gz"
-    sha256 "6fb52b5cff69e7250c3b7de8167c08b4bf46809ca352db21ceb5c5503eb9eeeb"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.14/shonenjump_Linux_arm64.tar.gz"
+    sha256 "61c75ac73a6b5c788d6765aab37780468cd46d59dea105a0920c9e90ab79e0df"
   end
 
   def install
@@ -44,7 +44,7 @@ class Shonenjump < Formula
     
     If you are using Fish, add the following line to your ~/.config/fish/config.fish:
     
-      [ -f #{etc}/profile.d/shonenjump.fish ]; and source #{etc}/profile.d/shonenjump.fish
+      [ -f #{etc}/profile.d/shonenjump.fish ]; and . #{etc}/profile.d/shonenjump.fish
   EOS
   end
 
