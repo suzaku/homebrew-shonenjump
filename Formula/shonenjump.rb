@@ -2,24 +2,24 @@
 class Shonenjump < Formula
   desc "A faster way to change directory and improve command line productivity."
   homepage "https://github.com/suzaku/shonenjump"
-  version "0.7.14"
+  version "0.7.15"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.14/shonenjump_Mac_x86_64.tar.gz"
-    sha256 "f24b92ddf7988c6cf2a88a5cea236141e3c96cfb28d1f8b9c3830aff1f316a7a"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.15/shonenjump_Mac_x86_64.tar.gz"
+    sha256 "96c92afe747e9ba21c4c63d93559e567393687e4113ea424f52d0e2cd5d4db29"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.14/shonenjump_Linux_x86_64.tar.gz"
-    sha256 "a254df02eae746027773ac691b2cbf547c5c3bcb04921226647b7beb4c62abf5"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.15/shonenjump_Linux_x86_64.tar.gz"
+    sha256 "11cade9c244d758b424edba4df634791f2e6b1b60d97adb19855f161dc587263"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.14/shonenjump_Linux_armv6.tar.gz"
-    sha256 "0732f3c82ddf52b5e1b647fba249023a9665c08669094a364064b50570ba6b48"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.15/shonenjump_Linux_armv6.tar.gz"
+    sha256 "c837aa815b5ff569de297a1e28fa84c936b35379a5f02ec671b21e7a8633e4bb"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.14/shonenjump_Linux_arm64.tar.gz"
-    sha256 "61c75ac73a6b5c788d6765aab37780468cd46d59dea105a0920c9e90ab79e0df"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.15/shonenjump_Linux_arm64.tar.gz"
+    sha256 "4e065a7c9031b6b405e1f99e13c57494e73b109fbb8d95074757359dbe5c576e"
   end
 
   def install
