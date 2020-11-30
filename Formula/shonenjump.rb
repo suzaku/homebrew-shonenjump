@@ -2,24 +2,24 @@
 class Shonenjump < Formula
   desc "A faster way to change directory and improve command line productivity."
   homepage "https://github.com/suzaku/shonenjump"
-  version "0.7.15"
+  version "0.7.16"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.15/shonenjump_Mac_x86_64.tar.gz"
-    sha256 "96c92afe747e9ba21c4c63d93559e567393687e4113ea424f52d0e2cd5d4db29"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.16/shonenjump_Mac_x86_64.tar.gz"
+    sha256 "998ad69e1519f2f1b035f3902c73df1c3e6283b08e38d44b103a507d6a96a9d0"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.15/shonenjump_Linux_x86_64.tar.gz"
-    sha256 "11cade9c244d758b424edba4df634791f2e6b1b60d97adb19855f161dc587263"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.16/shonenjump_Linux_x86_64.tar.gz"
+    sha256 "cdc0fc4d3110251f14f34bf5f8649ff09d1a662c8af0975b14b147e33f4ed18d"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.15/shonenjump_Linux_armv6.tar.gz"
-    sha256 "c837aa815b5ff569de297a1e28fa84c936b35379a5f02ec671b21e7a8633e4bb"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.16/shonenjump_Linux_armv6.tar.gz"
+    sha256 "5b0ccc9465ce40f1eb4d83c1dd19564b42e756aad8d1aad968439f3ef7a9ffdb"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.15/shonenjump_Linux_arm64.tar.gz"
-    sha256 "4e065a7c9031b6b405e1f99e13c57494e73b109fbb8d95074757359dbe5c576e"
+    url "https://github.com/suzaku/shonenjump/releases/download/v0.7.16/shonenjump_Linux_arm64.tar.gz"
+    sha256 "48213c43b5e3b28b78d4a5df1135573006ee2f790f13d8854d8b6c4c38298ba0"
   end
 
   def install
@@ -35,15 +35,15 @@ class Shonenjump < Formula
 
   def caveats; <<~EOS
     If you are using Bash, add the following line to your ~/.bash_profile:
-    
+
       [ -f #{etc}/profile.d/shonenjump.bash ] && . #{etc}/profile.d/shonenjump.bash
-    
+
     If you are using Zsh, add the following line to your ~/.zshrc:
-    
+
       [ -f #{etc}/profile.d/shonenjump.zsh ] && . #{etc}/profile.d/shonenjump.zsh
-    
+
     If you are using Fish, add the following line to your ~/.config/fish/config.fish:
-    
+
       [ -f #{etc}/profile.d/shonenjump.fish ]; and . #{etc}/profile.d/shonenjump.fish
   EOS
   end
